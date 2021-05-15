@@ -1,0 +1,128 @@
+*,*::after,*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: hsl(0, 0%, 95%);
+    font-family: 'Lexend Deca', sans-serif;
+}
+:root {
+    --paraColor: hsla(0, 0%, 100%, 0.75);
+    --everyOtherText: hsl(0, 0%, 95%);
+    --sedanCell: hsl(31, 77%, 52%);
+    --suvCell: hsl(184, 100%, 22%);
+    --luxuryCell: hsl(179, 100%, 13%);
+}
+body {
+    min-height: 100vh;
+    margin: auto;
+    max-width: 1000px;
+    display: grid;
+    grid-template-areas:
+    "sedan suvs luxury";
+    /* justify-items: center; */
+    align-items: center;
+    
+}
+.common {
+    display: grid;
+    grid-template-rows: 1.6fr 2fr 3fr 2fr;
+    grid-template-areas: 
+    "iconz"
+    "name"
+    "description"
+    "."
+    "more";
+    height: 500px;
+    padding: 50px;
+}
+.sedan 
+{
+    
+    background-color: var(--sedanCell);
+    grid-area: sedan;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    
+}
+.suv 
+{
+    background-color: var(--suvCell);
+    grid-area: suvs;
+    
+}
+.luxury 
+{
+    background-color: var(--luxuryCell);
+    grid-area: luxury;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+
+
+
+
+h2 {
+    grid-area: name;
+    font-size: 2.5rem;
+    font-family: 'Big Shoulders Display', cursive;
+}
+img {
+    grid-area: iconz;
+    max-height: 100%;
+    width: auto;
+}
+p {
+    grid-area: description;
+    color: var(--paraColor);
+    line-height: 25px;
+    
+}
+button 
+{
+    grid-area: more;
+    border-radius: 1.5rem;
+    border-width: 0px;
+    height: 2.7rem;
+    width: 7.5rem;
+    cursor: pointer;
+    border-style: solid;
+}
+.luxuryButton {
+    color: var(--luxuryCell);
+}
+.sedanButton{
+    color: var(--sedanCell);
+}
+.suvButton{
+    color: var(--suvCell);
+}
+.suvButton:hover,.sedanButton:hover,.luxuryButton:hover {
+    color: var(--everyOtherText);
+    background-color: transparent;
+    border-width: thin;
+    border-color: var(--everyOtherText);
+}
+@media screen and (max-width:768px) {
+    body {
+        grid-template-areas: 
+        "sedan"
+        "suvs"
+        "luxury";
+        max-width: 80vw;
+        margin: 1rem auto;
+    }
+    .sedan 
+    {
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 0px;
+    }
+    .luxury
+    {
+        background-color: var(--luxuryCell);
+        grid-area: luxury;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 8px;
+    }
+}
